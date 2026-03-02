@@ -1,4 +1,4 @@
-# 🚀 HubPro Estudos
+# 🚀 HubPro Estudos - Hub Protheus
 
 Plataforma de estudos focada em **Protheus e ADVPL**, com sistema de flashcards, quizzes e acompanhamento de desempenho.
 
@@ -63,7 +63,7 @@ hubpro-estudos/
 1. Clone o repositório:
 
 ```
-git clone https://github.com/SEUUSUARIO/hubpro-estudos.git
+git clone https://github.com/Devaks99/hubpro-estudos.git
 ```
 
 2. Abra o arquivo `index.html` no navegador.
