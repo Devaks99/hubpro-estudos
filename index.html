@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubPro - Hub de Estudos Protheus</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Estilos customizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-gray-900 font-sans">
+    <!-- Container Principal -->
+    <div id="app" class="flex h-screen bg-gray-50">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white border-r border-gray-200 shadow-sm fixed h-screen overflow-y-auto z-40 transition-transform duration-300 -translate-x-full md:translate-x-0">
+            <!-- Logo -->
+          <div class="flex items-center gap-3">
+
+    <!-- Ícone da Logo -->
+    <div class="w-10 h-10 flex items-center justify-center">
+        <img 
+            src="assets/logo hubpro-estudos-icon.png" 
+            alt="HubPro Logo"
+            class="w-10 h-10 object-contain"
+        />
+    </div>
+
+    <!-- Nome -->
+    <div>
+        <h1 class="text-lg font-bold text-gray-900">HubPro</h1>
+        <p class="text-xs text-gray-500">Estudos Protheus</p>
+    </div>
+
+</div>
+
+            <!-- Navegação -->
+            <nav class="p-4 space-y-2">
+                <a href="#" data-page="home" class="nav-link active flex items-center gap-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-3m0 0l7-4 7 4M5 9v10a1 1 0 001 1h12a1 1 0 001-1V9m-9 4v4m0 0H9m3 0h3"></path>
+                    </svg>
+                    <span>Início</span>
+                </a>
+                
+                <a href="#" data-page="content" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747S17.5 6.253 12 6.253z"></path>
+                    </svg>
+                    <span>Conteúdo</span>
+                </a>
+
+                <a href="#" data-page="flashcards" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>Flashcards</span>
+                </a>
+
+                <a href="#" data-page="quiz" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span>Quiz</span>
+                </a>
+
+                <a href="#" data-page="dashboard" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" data-page="settings" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="flex-1 md:ml-64 overflow-auto">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
+                <div class="flex items-center justify-between px-6 py-4">
+              <div class="flex items-center gap-4">
+
+    <!-- Botão mobile -->
+    <button id="menu-toggle" class="md:hidden p-2 hover:bg-gray-100 rounded-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+        <img 
+            src="assets/logo hubpro-estudos.png" 
+            alt="HubPro Logo"
+            class="h-10 w-auto object-contain"
+        />
+    </div>
+</div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-600">Usuário</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Páginas -->
+            <div class="p-6 max-w-7xl mx-auto">
+                <!-- Página Home -->
+                <div id="page-home" class="page-content">
+                    <div class="space-y-6 animate-fade-in">
+                        <!-- Descrição -->
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 border border-blue-100">
+                            <h1 class="text-3xl font-bold text-gray-900 mb-2">Bem-vindo(a)!</h1>
+                            <p class="text-gray-700">Seu hub completo de estudos para Protheus e ADVPL. Aprenda com flashcards, teste seus conhecimentos com quizzes e acompanhe seu progresso em tempo real.</p>
+                        </div>
+
+                        <!-- Botões de Ação -->
+                        <div class="flex gap-4 flex-wrap">
+                            <button onclick="navigateTo('flashcards')" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all">
+                                Começar com Flashcards
+                            </button>
+                            <button onclick="navigateTo('quiz')" class="px-6 py-3 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-all">
+                                Fazer um Quiz
+                            </button>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                                <p class="text-sm text-gray-600 mb-2">Módulos</p>
+                                <p class="text-4xl font-bold text-blue-600">12</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                                <p class="text-sm text-gray-600 mb-2">Flashcards</p>
+                                <p class="text-4xl font-bold text-blue-600">250+</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                                <p class="text-sm text-gray-600 mb-2">Quizzes</p>
+                                <p class="text-4xl font-bold text-blue-600">48</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                                <p class="text-sm text-gray-600 mb-2">Tópicos</p>
+                                <p class="text-4xl font-bold text-blue-600">180+</p>
+                            </div>
+                        </div>
+
+                        <!-- Módulos de Estudo -->
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Módulos de Estudo</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all cursor-pointer" onclick="navigateTo('content')">
+                                    <h4 class="font-bold text-gray-900 mb-2">Fundamentos de Protheus</h4>
+                                    <p class="text-sm text-gray-600">Conceitos básicos e arquitetura do Protheus</p>
+                                    <p class="text-xs text-blue-600 mt-4 font-medium">45 tópicos</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all cursor-pointer" onclick="navigateTo('content')">
+                                    <h4 class="font-bold text-gray-900 mb-2">ADVPL Essencial</h4>
+                                    <p class="text-sm text-gray-600">Sintaxe e estruturas fundamentais de ADVPL</p>
+                                    <p class="text-xs text-blue-600 mt-4 font-medium">65 tópicos</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all cursor-pointer" onclick="navigateTo('content')">
+                                    <h4 class="font-bold text-gray-900 mb-2">Banco de Dados</h4>
+                                    <p class="text-sm text-gray-600">Queries, índices e otimização de banco de dados</p>
+                                    <p class="text-xs text-blue-600 mt-4 font-medium">70 tópicos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance -->
+                        <div class="bg-white rounded-lg p-6 border border-gray-200">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Seu Desempenho</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Taxa de Acerto</p>
+                                    <p class="text-4xl font-bold text-blue-600">valor%</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Questões Respondidas</p>
+                                    <p class="text-4xl font-bold text-blue-600">total questões</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-2">Sequência Atual</p>
+                                    <p class="text-4xl font-bold text-blue-600">X dias</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página Conteúdo -->
+                <div id="page-content" class="page-content hidden">
+                    <div class="space-y-6 animate-fade-in">
+                        <h1 class="text-3xl font-bold text-gray-900">Conteúdo de Estudos</h1>
+                        
+                        <div class="space-y-4" id="content-list">
+                            <!-- Será preenchido por JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página Flashcards -->
+                <div id="page-flashcards" class="page-content hidden">
+                    <div class="space-y-6 animate-fade-in">
+                        <h1 class="text-3xl font-bold text-gray-900">Flashcards</h1>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <p class="text-sm text-gray-600">Total</p>
+                                <p class="text-2xl font-bold text-blue-600" id="fc-total">0</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <p class="text-sm text-gray-600">Estudados</p>
+                                <p class="text-2xl font-bold text-green-600" id="fc-studied">0</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <p class="text-sm text-gray-600">Pendentes</p>
+                                <p class="text-2xl font-bold text-orange-600" id="fc-pending">0</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <p class="text-sm text-gray-600">Progresso</p>
+                                <p class="text-2xl font-bold text-blue-600" id="fc-progress">0%</p>
+                            </div>
+                        </div>
+
+  <!-- Flashcard -->
+<div class="bg-white rounded-xl p-10 border border-gray-200 flex flex-col justify-center items-center cursor-pointer group"
+     onclick="flipCard()"
+     style="perspective: 1600px;">
+
+    <div id="flashcard"
+         class="w-full max-w-4xl h-80 relative transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+         style="transform-style: preserve-3d; will-change: transform;">
+
+        <!-- Frente -->
+        <div
+            class="absolute w-full h-full rounded-xl shadow-xl flex items-center justify-center text-white p-10 overflow-hidden"
+            style="
+                backface-visibility: hidden;
+                background: linear-gradient(135deg, #2563eb, #1e3a8a);
+            ">
+
+            <!-- brilho animado -->
+            <div class="absolute inset-0 opacity-20 bg-gradient-to-tr from-white/40 to-transparent animate-pulse pointer-events-none"></div>
+
+            <div class="text-center relative z-10">
+                <p class="text-sm opacity-70 mb-4 tracking-wide">Clique para virar</p>
+                <p id="flashcard-question" class="text-2xl font-semibold leading-relaxed">
+                    Carregando...
+                </p>
+            </div>
+        </div>
+
+        <!-- Verso -->
+        <div
+            class="absolute w-full h-full rounded-xl shadow-2xl flex items-center justify-center text-white p-10 overflow-hidden"
+            style="
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
+                background: linear-gradient(135deg, #1e40af, #0f172a);
+            ">
+
+            <div class="absolute inset-0 opacity-10 bg-gradient-to-br from-white/40 to-transparent pointer-events-none"></div>
+
+            <div class="text-center relative z-10">
+                <p class="text-sm opacity-70 mb-4 tracking-wide">Resposta</p>
+                <p id="flashcard-answer" class="text-2xl font-semibold leading-relaxed"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+                        <!-- Controles -->
+                        <div class="flex gap-4 justify-center flex-wrap">
+                            <button onclick="prevFlashcard()" class="px-6 py-3 bg-gray-200 text-gray-900 rounded-lg font-medium hover:bg-gray-300 transition-all">
+                                ← Anterior
+                            </button>
+                            <button onclick="markFlashcardAsStudied()" class="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-all">
+                                ✓ Estudado
+                            </button>
+                            <button onclick="nextFlashcard()" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all">
+                                Próximo →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página Quiz -->
+                <div id="page-quiz" class="page-content hidden">
+                    <div class="space-y-6 animate-fade-in">
+                        <h1 class="text-3xl font-bold text-gray-900">Quiz</h1>
+                        
+                        <div id="quiz-start" class="space-y-4">
+                            <p class="text-gray-700">Escolha um módulo para começar:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="quiz-modules">
+                                <!-- Será preenchido por JavaScript -->
+                            </div>
+                        </div>
+
+                        <div id="quiz-container" class="hidden space-y-6">
+                            <div class="bg-white rounded-lg p-6 border border-gray-200">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 id="quiz-question" class="text-lg font-bold text-gray-900"></h3>
+                                    <span id="quiz-counter" class="text-sm text-gray-600"></span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div id="quiz-progress" class="bg-blue-600 h-2 rounded-full transition-all"></div>
+                                </div>
+                            </div>
+
+                            <div id="quiz-options" class="space-y-3">
+                                <!-- Será preenchido por JavaScript -->
+                            </div>
+
+                            <div id="quiz-feedback" class="hidden p-4 rounded-lg text-center">
+                                <p id="feedback-text" class="font-medium"></p>
+                            </div>
+
+                            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all hidden">
+                                Próxima Questão
+                            </button>
+                        </div>
+
+                        <div id="quiz-results" class="hidden space-y-6">
+                            <div class="bg-white rounded-lg p-8 border border-gray-200 text-center">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Quiz Concluído!</h2>
+                                <div class="grid grid-cols-3 gap-4 mb-6">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Acertos</p>
+                                        <p class="text-3xl font-bold text-green-600" id="result-correct">0</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Erros</p>
+                                        <p class="text-3xl font-bold text-red-600" id="result-wrong">0</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Taxa</p>
+                                        <p class="text-3xl font-bold text-blue-600" id="result-percentage">0%</p>
+                                    </div>
+                                </div>
+                                <button onclick="resetQuiz()" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all">
+                                    Fazer Outro Quiz
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página Dashboard -->
+                <div id="page-dashboard" class="page-content hidden">
+                    <div class="space-y-6 animate-fade-in">
+                        <h1 class="text-3xl font-bold text-gray-900">Dashboard de Desempenho</h1>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="bg-white rounded-lg p-6 border border-gray-200">
+                                <p class="text-sm text-gray-600 mb-2">Taxa de Acerto</p>
+                                <p class="text-3xl font-bold text-blue-600">76%</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 border border-gray-200">
+                                <p class="text-sm text-gray-600 mb-2">Total de Questões</p>
+                                <p class="text-3xl font-bold text-blue-600">342</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 border border-gray-200">
+                                <p class="text-sm text-gray-600 mb-2">Sequência</p>
+                                <p class="text-3xl font-bold text-green-600">12 dias</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 border border-gray-200">
+                                <p class="text-sm text-gray-600 mb-2">Tempo Total</p>
+                                <p class="text-3xl font-bold text-blue-600">42h</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-lg p-6 border border-gray-200">
+                                <h3 class="text-lg font-bold text-gray-900 mb-4">Acertos vs Erros</h3>
+                                <canvas id="chart-pie"></canvas>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 border border-gray-200">
+                                <h3 class="text-lg font-bold text-gray-900 mb-4">Desempenho por Módulo</h3>
+                                <canvas id="chart-bar"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border border-gray-200">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Progresso Semanal</h3>
+                            <canvas id="chart-line"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página Configurações -->
+                <div id="page-settings" class="page-content hidden">
+                    <div class="space-y-6 animate-fade-in">
+                        <h1 class="text-3xl font-bold text-gray-900">Configurações</h1>
+                        
+                        <div class="bg-white rounded-lg p-6 border border-gray-200 space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 mb-2">Nome do Usuário</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" value="Usuário">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" value="usuario@example.com">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 mb-2">Tema</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                    <option>Claro</option>
+                                    <option>Escuro</option>
+                                    <option>Automático</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 mb-2">Notificações</label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4" checked>
+                                    <span class="text-gray-700">Ativar notificações</span>
+                                </label>
+                            </div>
+
+                            <button class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all">
+                                Salvar Alterações
+                            </button>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border border-gray-200">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Dados</h3>
+                            <button class="px-6 py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-all">
+                                Limpar Dados Locais
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/flashcards.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
