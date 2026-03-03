@@ -146,41 +146,27 @@
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                                 <p class="text-sm text-gray-600 mb-2">Módulos</p>
-                                <p class="text-4xl font-bold text-blue-600">12</p>
+                                <p class="text-4xl font-bold text-blue-600" id="home-modules">0</p>
                             </div>
                             <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                                 <p class="text-sm text-gray-600 mb-2">Flashcards</p>
-                                <p class="text-4xl font-bold text-blue-600">250+</p>
+                                <p class="text-4xl font-bold text-blue-600" id="home-flashcards">0</p>
                             </div>
                             <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                                 <p class="text-sm text-gray-600 mb-2">Quizzes</p>
-                                <p class="text-4xl font-bold text-blue-600">48</p>
+                                <p class="text-4xl font-bold text-blue-600" id="home-quizzes">0</p>
                             </div>
                             <div class="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                                 <p class="text-sm text-gray-600 mb-2">Tópicos</p>
-                                <p class="text-4xl font-bold text-blue-600">180+</p>
+                                <p class="text-4xl font-bold text-blue-600" id="home-topics">0</p>
                             </div>
                         </div>
 
                         <!-- Módulos de Estudo -->
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-4">Módulos de Estudo</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div class="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all cursor-pointer" onclick="navigateTo('content')">
-                                    <h4 class="font-bold text-gray-900 mb-2">Fundamentos de Protheus</h4>
-                                    <p class="text-sm text-gray-600">Conceitos básicos e arquitetura do Protheus</p>
-                                    <p class="text-xs text-blue-600 mt-4 font-medium">45 tópicos</p>
-                                </div>
-                                <div class="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all cursor-pointer" onclick="navigateTo('content')">
-                                    <h4 class="font-bold text-gray-900 mb-2">ADVPL Essencial</h4>
-                                    <p class="text-sm text-gray-600">Sintaxe e estruturas fundamentais de ADVPL</p>
-                                    <p class="text-xs text-blue-600 mt-4 font-medium">65 tópicos</p>
-                                </div>
-                                <div class="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all cursor-pointer" onclick="navigateTo('content')">
-                                    <h4 class="font-bold text-gray-900 mb-2">Banco de Dados</h4>
-                                    <p class="text-sm text-gray-600">Queries, índices e otimização de banco de dados</p>
-                                    <p class="text-xs text-blue-600 mt-4 font-medium">70 tópicos</p>
-                                </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="home-modules-list">
+                                <!-- Preenchido por JavaScript -->
                             </div>
                         </div>
 
@@ -190,15 +176,15 @@
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div class="text-center">
                                     <p class="text-sm text-gray-600 mb-2">Taxa de Acerto</p>
-                                    <p class="text-4xl font-bold text-blue-600">valor%</p>
+                                    <p class="text-4xl font-bold text-blue-600" id="home-percentage">0%</p>
                                 </div>
                                 <div class="text-center">
                                     <p class="text-sm text-gray-600 mb-2">Questões Respondidas</p>
-                                    <p class="text-4xl font-bold text-blue-600">total questões</p>
+                                    <p class="text-4xl font-bold text-blue-600" id="home-questions">0</p>
                                 </div>
                                 <div class="text-center">
                                     <p class="text-sm text-gray-600 mb-2">Sequência Atual</p>
-                                    <p class="text-4xl font-bold text-blue-600">X dias</p>
+                                    <p class="text-4xl font-bold text-blue-600" id="home-streak">0 dias</p>
                                 </div>
                             </div>
                         </div>
@@ -372,19 +358,19 @@
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div class="bg-white rounded-lg p-6 border border-gray-200">
                                 <p class="text-sm text-gray-600 mb-2">Taxa de Acerto</p>
-                                <p class="text-3xl font-bold text-blue-600">76%</p>
+                                <p class="text-3xl font-bold text-blue-600" id="dash-percentage">0%</p>
                             </div>
                             <div class="bg-white rounded-lg p-6 border border-gray-200">
                                 <p class="text-sm text-gray-600 mb-2">Total de Questões</p>
-                                <p class="text-3xl font-bold text-blue-600">342</p>
+                                <p class="text-3xl font-bold text-blue-600" id="dash-questions">0</p>
                             </div>
                             <div class="bg-white rounded-lg p-6 border border-gray-200">
                                 <p class="text-sm text-gray-600 mb-2">Sequência</p>
-                                <p class="text-3xl font-bold text-green-600">12 dias</p>
+                                <p class="text-3xl font-bold text-green-600" id="dash-streak">0 dias</p>
                             </div>
                             <div class="bg-white rounded-lg p-6 border border-gray-200">
                                 <p class="text-sm text-gray-600 mb-2">Tempo Total</p>
-                                <p class="text-3xl font-bold text-blue-600">42h</p>
+                                <p class="text-3xl font-bold text-blue-600" id="dash-time">0h</p>
                             </div>
                         </div>
 
